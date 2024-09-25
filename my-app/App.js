@@ -1,29 +1,35 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, Image, Pressable } from 'react-native';
-import ImageButton from './components/ImageButton';
+import { StatusBar } from "expo-status-bar";
+import { StyleSheet, Text, View } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import ImageButton from "./components/ImageButton";
+import Dispositivos from "./pages/InOut";
+import Memoria from "./pages/Mem";
+import Cpu from "./pages/Cpu";
+import Alu from "./pages/Alu";
 
-export default function App() {
-  const handleClick = () => {
-    alert('Image clicked!');
-  };
+const Stack = createStackNavigator();
 
+function HomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Sistemas Básicos, Arquitectura y Procesamiento</Text>
+      <Text style={styles.title}>
+        Sistemas Básicos, Arquitectura y Procesamiento
+      </Text>
       <View style={styles.imageContainer}>
-        <ImageButton 
-          onPress={() => console.log("Button as component")} 
-          imageStyle={styles.icon} 
+        <ImageButton
+          onPress={() => navigation.navigate("Cpu")}
+          imageStyle={styles.icon}
           source={require("./assets/cpu.jpg")}
         />
-        <ImageButton 
-          onPress={() => console.log("Button as component")} 
-          imageStyle={styles.icon} 
+        <ImageButton
+          onPress={() => navigation.navigate("Dispositivos")}
+          imageStyle={styles.icon}
           source={require("./assets/inOut.webp")}
         />
-        <ImageButton 
-          onPress={() => console.log("Button as component")} 
-          imageStyle={styles.icon} 
+        <ImageButton
+          onPress={() => navigation.navigate("Memoria")}
+          imageStyle={styles.icon}
           source={require("./assets/mem.webp")}
         />
       </View>
@@ -32,22 +38,37 @@ export default function App() {
   );
 }
 
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        {/* Definir pantallas, todas las paginas se definen aqui, incluso las que no cargan desde app.js como en Cpu.js */}
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Cpu" component={Cpu} />
+        <Stack.Screen name="Dispositivos" component={Dispositivos} />
+        <Stack.Screen name="Memoria" component={Memoria} />
+        <Stack.Screen name="Alu" component={Alu} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
   },
   title: {
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: 20,
-    textAlign: 'center',
+    textAlign: "center",
   },
   imageContainer: {
-    flexDirection: 'column',
-    justifyContent: 'space-between',
+    flexDirection: "column",
+    justifyContent: "space-between",
   },
   icon: {
     width: 200,
