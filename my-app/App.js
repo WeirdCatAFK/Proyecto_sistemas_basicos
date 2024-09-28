@@ -6,7 +6,14 @@ import ImageButton from "./components/ImageButton";
 import Dispositivos from "./pages/InOut";
 import Memoria from "./pages/Mem";
 import Cpu from "./pages/Cpu";
+//Unidad de procesamiento
 import Alu from "./pages/Alu";
+import ConUnit from "./pages/ConUnit";
+import Reg from "./pages/Reg";
+//Dispositivos de entrada y salida
+import DisEntrada from "./pages/DisEntrada";
+import DisSalida from "./pages/DisSalida";
+
 
 const Stack = createStackNavigator();
 
@@ -17,16 +24,21 @@ function HomeScreen({ navigation }) {
         Sistemas Básicos, Arquitectura y Procesamiento
       </Text>
       <View style={styles.imageContainer}>
+        <Text>Unidad de procesamiento</Text>
         <ImageButton
           onPress={() => navigation.navigate("Cpu")}
           imageStyle={styles.icon}
           source={require("./assets/cpu.jpg")}
         />
+        <Text>Dispositivos de entrada y de salida</Text>
+
         <ImageButton
           onPress={() => navigation.navigate("Dispositivos")}
           imageStyle={styles.icon}
           source={require("./assets/inOut.webp")}
         />
+        <Text>Unidad de memoria</Text>
+
         <ImageButton
           onPress={() => navigation.navigate("Memoria")}
           imageStyle={styles.icon}
@@ -47,7 +59,13 @@ export default function App() {
         <Stack.Screen name="Cpu" component={Cpu} />
         <Stack.Screen name="Dispositivos" component={Dispositivos} />
         <Stack.Screen name="Memoria" component={Memoria} />
+        {/*CPU components */}
         <Stack.Screen name="Alu" component={Alu} />
+        <Stack.Screen name="ConUnit" component={ConUnit} />
+        <Stack.Screen name="Reg" component={Reg} />
+        {/*Entrada y salida*/}
+        <Stack.Screen name="DisEntrada" component={DisEntrada} />
+        <Stack.Screen name="DisSalida" component={DisSalida} />
       </Stack.Navigator>
     </NavigationContainer>
   );

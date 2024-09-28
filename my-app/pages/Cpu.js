@@ -1,10 +1,8 @@
 import React from "react";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
-import ImageButton from './../components/ImageButton';
+import ImageButton from "./../components/ImageButton";
 export default function Cpu({ navigation }) {
-
-  
   return (
     <View style={styles.container}>
       <Text style={styles.title}>
@@ -12,17 +10,19 @@ export default function Cpu({ navigation }) {
       </Text>
       <View style={styles.imageContainer}>
         {/* Navigate to the Alu component */}
+        <Text>ALU</Text>
         <ImageButton
           onPress={() => navigation.navigate("Alu")}
           imageStyle={styles.icon}
           source={require("./../assets/Alu.webp")}
         />
-        {/* Add other buttons for navigation */}
+        <Text>Unidad de control</Text>
         <ImageButton
-          onPress={() => navigation.navigate("Con")}
+          onPress={() => navigation.navigate("ConUnit")}
           imageStyle={styles.icon}
           source={require("./../assets/control.jpg")}
         />
+        <Text>Registros del CPU</Text>
         <ImageButton
           onPress={() => navigation.navigate("Reg")}
           imageStyle={styles.icon}

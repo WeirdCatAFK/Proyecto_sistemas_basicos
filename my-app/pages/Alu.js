@@ -62,6 +62,12 @@ const ALUCalculator = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>ALU Calculator</Text>
+      <Text>
+        ALU La unidad aritmética lógica o unidad aritmético-lógica, también
+        conocida como ALU (siglas en inglés de arithmetic logic unit), es un
+        circuito digital que calcula operaciones aritméticas, a continuaciónuna
+        calculadora que realiza las operaciones de la ALU
+      </Text>
 
       <View style={styles.inputContainer}>
         <Text>A:</Text>
@@ -95,17 +101,40 @@ const ALUCalculator = () => {
 
       <View style={styles.buttonContainer}>
         <Button title="Add" onPress={() => handleOperation("ADD")} />
-        <Button title="Add with Carry" onPress={() => handleOperation("ADD_WITH_CARRY")} />
+        <Button
+          title="Add with Carry"
+          onPress={() => handleOperation("ADD_WITH_CARRY")}
+        />
         <Button title="Subtract" onPress={() => handleOperation("SUB")} />
-        <Button title="Subtract with Borrow" onPress={() => handleOperation("SUB_WITH_BORROW")} />
-        <Button title="Increment" onPress={() => handleOperation("INCREMENT")} />
-        <Button title="Decrement" onPress={() => handleOperation("DECREMENT")} />
-        <Button title="Pass Through A" onPress={() => handleOperation("PASS_THROUGH_A")} />
-        <Button title="Pass Through B" onPress={() => handleOperation("PASS_THROUGH_B")} />
-        <Button title="Two's Complement" onPress={() => handleOperation("TWO'S_COMPLEMENT")} />
+        <Button
+          title="Subtract with Borrow"
+          onPress={() => handleOperation("SUB_WITH_BORROW")}
+        />
+        <Button
+          title="Increment"
+          onPress={() => handleOperation("INCREMENT")}
+        />
+        <Button
+          title="Decrement"
+          onPress={() => handleOperation("DECREMENT")}
+        />
+        <Button
+          title="Pass Through A"
+          onPress={() => handleOperation("PASS_THROUGH_A")}
+        />
+        <Button
+          title="Pass Through B"
+          onPress={() => handleOperation("PASS_THROUGH_B")}
+        />
+        <Button
+          title="Two's Complement"
+          onPress={() => handleOperation("TWO'S_COMPLEMENT")}
+        />
       </View>
 
-      <Text style={styles.resultText}>Result: {result !== null ? result : "N/A"}</Text>
+      <Text style={styles.resultText}>
+        Result: {result !== null ? result : "N/A"}
+      </Text>
       <Text style={styles.resultText}>Carry Out: {carryOut}</Text>
     </View>
   );
